@@ -1,1 +1,0 @@
-{"model":"qwen2.5:3b","created_at":"2026-11-05T09:35:37.348088212Z","message":{"role":"assistant","content":"CYBERCLAW_OK"},"done":true,"done_reason":"stop","total_duration":17700533322,"load_duration":16346985284,"prompt_eval_count":38,"prompt_eval_cached_count":0,"prompt_eval_duration":903577000,"eval_count":6,"eval_duration":443221000}
