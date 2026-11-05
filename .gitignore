@@ -1,0 +1,43 @@
+
+# Gateway tokens and environment secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+
+# OpenClaw runtime configuration and credentials
+environment/config/*
+!environment/config/.gitkeep
+
+# Agent workspace and generated runtime files
+environment/workspace/
+**/agents/
+**/sessions/
+**/credentials/
+**/auth-profiles.json
+
+# Databases and sensitive artifacts
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.pem
+*.key
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Python / system-generated files
+__pycache__/
+*.pyc
+.DS_Store
+
+# IDE configuration
+.vscode/
+.idea/
+

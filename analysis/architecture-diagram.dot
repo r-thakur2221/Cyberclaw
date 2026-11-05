@@ -1,0 +1,119 @@
+
+digraph CyberClaw {
+    graph [
+        label="CyberClaw - Task 1 Security Architecture",
+        labelloc=t,
+        fontsize=22,
+        fontname="Arial",
+        rankdir=TB,
+        bgcolor="white",
+        nodesep=0.55,
+        ranksep=0.8,
+        pad=0.4
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Arial",
+        fontsize=11,
+        color="#64748b",
+        fillcolor="#eff6ff",
+        margin=0.18
+    ];
+
+    edge [
+        fontname="Arial",
+        fontsize=10,
+        color="#475569"
+    ];
+
+    operator [
+        label="Trusted Operator\nUbuntu terminal / CLI",
+        fillcolor="#dcfce7"
+    ];
+
+    external [
+        label="Untrusted Inputs\nWeb pages / external content",
+        fillcolor="#fee2e2"
+    ];
+
+    subgraph cluster_vm {
+        label="Trust Boundary 1: SEED Ubuntu 20.04 VM";
+        style="rounded,dashed";
+        color="#64748b";
+
+        hostport [
+            label="VM Loopback Ports\n127.0.0.1:18789 / 11434",
+            fillcolor="#e0f2fe"
+        ];
+
+        subgraph cluster_docker {
+            label="Trust Boundary 2: Docker Bridge Network";
+            style="rounded";
+            color="#2563eb";
+
+            gateway [
+                label="OpenClaw Gateway 2026.9.3\nToken authentication\nRate limiting NOT configured",
+                fillcolor="#fef3c7"
+            ];
+
+            agent [
+                label="OpenClaw Agent\nSandbox OFF\nSmall model: 0.5B",
+                fillcolor="#fee2e2"
+            ];
+
+            tools [
+                label="Agent Tools\nexec / read / write / browser\nPotentially sensitive operations",
+                fillcolor="#fee2e2"
+            ];
+
+            ollama [
+                label="Ollama 0.40.14\nInternal API :11434\nContext: 16384 tokens",
+                fillcolor="#dbeafe"
+            ];
+
+            model [
+                label="Qwen2.5:0.5b\nLocal LLM inference",
+                fillcolor="#dcfce7"
+            ];
+
+            config [
+                label="Bind-mounted Configuration\nopenclaw.json: mode 664\nCritical permission finding",
+                fillcolor="#fee2e2"
+            ];
+
+            workspace [
+                label="Bind-mounted Workspace\nAgent files and working data",
+                fillcolor="#f1f5f9"
+            ];
+
+            gateway -> agent [label="Agent requests"];
+            agent -> ollama [label="Inference API"];
+            ollama -> model [label="Run model"];
+            model -> ollama [label="Generated output"];
+            agent -> tools [label="Tool requests"];
+            agent -> workspace [label="File access"];
+            config -> gateway [label="Policy / settings"];
+        }
+
+        hostport -> gateway [label="Port forwarding"];
+        hostport -> ollama [style=dashed, label="Local API"];
+    }
+
+    operator -> hostport [label="Authenticated CLI / API"];
+    external -> agent [
+        label="Potential prompt-injection path\n(if external content is fetched)",
+        style=dashed,
+        color="#dc2626"
+    ];
+
+    note [
+        shape=note,
+        label="Container controls:\nUser=node\nPrivileged=false\nCapDrop=ALL\nno-new-privileges=true\n\nOpenClaw sandbox is separate.",
+        fillcolor="#f8fafc"
+    ];
+
+    note -> gateway [style=dotted, arrowhead=none];
+}
+

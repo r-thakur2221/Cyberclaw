@@ -1,0 +1,1 @@
+User=node Privileged=false CapDrop=["ALL"] SecurityOpt=["no-new-privileges:true"]

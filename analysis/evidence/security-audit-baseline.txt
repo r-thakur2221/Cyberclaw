@@ -1,0 +1,28 @@
+OpenClaw security audit
+Summary: 2 critical · 1 warn · 1 info
+Run deeper: openclaw security audit --deep
+
+CRITICAL
+models.small_params Small models require sandboxing and web tools disabled
+  Small models (<=300B params) detected:
+- ollama/qwen2.5:0.5b (0.5B) @ agents.defaults.model.primary (unsafe; sandbox=off; web=[web_search, web_fetch, browser])
+Uncontrolled input tools allowed: web_search, web_fetch, browser.
+Small models are not recommended for untrusted inputs.
+  Fix: If you must use small models, disable web_search/web_fetch/browser globally or for each small model with tools.byProvider["provider/model"].deny=["group:web","browser"]; use agents.defaults.sandbox.mode="all" for defense in depth.
+fs.config.perms_writable Config file is writable by others
+  /home/node/.openclaw/openclaw.json mode=664; another user could change gateway/auth/tool policies.
+  Fix: chmod 600 /home/node/.openclaw/openclaw.json
+
+WARN
+gateway.auth_no_rate_limit No auth rate limiting configured
+  gateway.bind is not loopback but no gateway.auth.rateLimit is configured. Without rate limiting, brute-force auth attacks are not mitigated.
+  Fix: Set gateway.auth.rateLimit (e.g. { maxAttempts: 10, windowMs: 60000, lockoutMs: 300000 }).
+
+INFO
+summary.attack_surface Attack surface summary
+  groups: open=0, allowlist=0
+tools.elevated: enabled
+hooks.webhooks: disabled
+hooks.internal: disabled
+browser control: enabled
+trust model: personal assistant (one trusted operator boundary), not hostile multi-tenant on one shared gateway. For multiple users or organizations, run one isolated Gateway cell per tenant: https://docs.openclaw.ai/gateway/multi-tenant-hosting
