@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "error": {
+    "type": "cli_error",
+    "message": "A Gateway is running for this state directory (pid 7, port 18789). Run without --local to use it, or stop the Gateway first (openclaw gateway stop)."
+  }
+}
+[openclaw] Could not start the CLI.
+[openclaw] Reason: A Gateway is running for this state directory (pid 7, port 18789). Run without --local to use it, or stop the Gateway first (openclaw gateway stop).
+[openclaw] Debug: set OPENCLAW_DEBUG=1 to include the stack trace.
+[openclaw] Try: openclaw doctor
+[openclaw] Help: openclaw --help

@@ -26,6 +26,7 @@ services:
     environment:
       HOME: /home/node
       OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN:?Set token in .env}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:?Set GEMINI_API_KEY in environment/.env}
       OLLAMA_API_KEY: ollama-local
     volumes:
       - ./config:/home/node/.openclaw

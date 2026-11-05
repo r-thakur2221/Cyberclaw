@@ -1,0 +1,270 @@
+[agent/embedded] tool-search: cataloged 1 tools behind compact prompt surface
+[agent/embedded] [context-pressure-diagnostic] admitted provider attempt for ollama/qwen2.5:3b route=compact_only estimatedPromptTokens=8105 promptBudgetBeforeReserve=6144
+[memory] memory_index_chunks_vec not updated — semantic vector embeddings unavailable — no vector dimensions resolved. Vector recall degraded. Further duplicate warnings suppressed.
+[agent/embedded] embedded run timeout: runId=4529dc5f-acb1-4f81-a4fc-17c1d6cfa737 sessionId=cyberclaw-isolated-read-06 timeoutMs=89902
+{
+  "payloads": [
+    {
+      "text": "Request timed out before a response was generated. Please try again, or increase `agents.defaults.timeoutSeconds` in your config.",
+      "isError": true,
+      "mediaUrl": null
+    }
+  ],
+  "meta": {
+    "durationMs": 90907,
+    "agentMeta": {
+      "sessionId": "cyberclaw-isolated-read-06",
+      "sessionFile": "agent:main:explicit:cyberclaw-isolated-read-06",
+      "provider": "ollama",
+      "model": "qwen2.5:3b",
+      "contextTokens": 8192,
+      "contextTokensSource": "resolved",
+      "agentHarnessId": "openclaw",
+      "credentialSource": {
+        "kind": "direct",
+        "evidence": "environment",
+        "authorization": "ambient"
+      },
+      "contextBudgetStatus": {
+        "schemaVersion": 1,
+        "source": "pre-prompt-estimate",
+        "updatedAt": 1793874897836,
+        "provider": "ollama",
+        "model": "qwen2.5:3b",
+        "route": "compact_only",
+        "shouldCompact": true,
+        "estimatedPromptTokens": 8105,
+        "contextTokenBudget": 8192,
+        "promptBudgetBeforeReserve": 6144,
+        "reserveTokens": 2048,
+        "effectiveReserveTokens": 2048,
+        "remainingPromptBudgetTokens": 0,
+        "overflowTokens": 1961,
+        "toolResultReducibleChars": 0,
+        "messageCount": 0,
+        "unwindowedMessageCount": 0,
+        "sessionId": "cyberclaw-isolated-read-06"
+      },
+      "codeModeEngaged": false,
+      "assistantTurns": 1,
+      "bridgeCalls": {
+        "search": 0,
+        "describe": 0,
+        "call": 0
+      },
+      "terminalReceipt": {
+        "runId": "4529dc5f-acb1-4f81-a4fc-17c1d6cfa737",
+        "sessionId": "cyberclaw-isolated-read-06",
+        "turnId": "4529dc5f-acb1-4f81-a4fc-17c1d6cfa737",
+        "requested": {
+          "provider": "ollama",
+          "model": "qwen2.5:3b"
+        },
+        "effective": {
+          "provider": "ollama",
+          "model": "qwen2.5:3b",
+          "responseModel": "qwen2.5:3b"
+        },
+        "successfulToolNames": [],
+        "rerouted": false
+      }
+    },
+    "aborted": false,
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1793874897462,
+      "sessionId": "cyberclaw-isolated-read-06",
+      "sessionKey": "agent:main:explicit:cyberclaw-isolated-read-06",
+      "provider": "ollama",
+      "model": "qwen2.5:3b",
+      "workspaceDir": "/home/node/.openclaw-cyberclaw-test/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "always",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 26818,
+        "hash": "393a02f2608663c5bd4f4caa24f84640390a803d550034869f77eba1fa6c5c75",
+        "projectContextChars": 16259,
+        "nonProjectContextChars": 10559
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/home/node/.openclaw-cyberclaw-test/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 6305,
+          "injectedChars": 6305,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/home/node/.openclaw-cyberclaw-test/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1561,
+          "injectedChars": 1561,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/home/node/.openclaw-cyberclaw-test/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 1398,
+          "injectedChars": 1398,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/home/node/.openclaw-cyberclaw-test/workspace/USER.md",
+          "missing": false,
+          "rawChars": 1136,
+          "injectedChars": 1136,
+          "truncated": false
+        },
+        {
+          "name": "BOOTSTRAP.md",
+          "path": "/home/node/.openclaw-cyberclaw-test/workspace/BOOTSTRAP.md",
+          "missing": false,
+          "rawChars": 4761,
+          "injectedChars": 4761,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 3700,
+        "hash": "37160f77b458dd8a50cb069eb9fc4599c0f89a847209c7b3e7961ca2e050c861",
+        "entries": [
+          {
+            "name": "browser-automation",
+            "blockChars": 244
+          },
+          {
+            "name": "canvas",
+            "blockChars": 220
+          },
+          {
+            "name": "clawhub",
+            "blockChars": 192
+          },
+          {
+            "name": "control-ui",
+            "blockChars": 199
+          },
+          {
+            "name": "diagram-maker",
+            "blockChars": 205
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 201
+          },
+          {
+            "name": "meme-maker",
+            "blockChars": 199
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 203
+          },
+          {
+            "name": "node-inspect-debugger",
+            "blockChars": 221
+          },
+          {
+            "name": "notion",
+            "blockChars": 191
+          },
+          {
+            "name": "python-debugpy",
+            "blockChars": 206
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 205
+          },
+          {
+            "name": "spike",
+            "blockChars": 189
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 195
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 221
+          },
+          {
+            "name": "weather",
+            "blockChars": 193
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 1955,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 164,
+            "summaryHash": "d136f5b09e28d671addad4ca800b75b8aa6a36002bc739ead964f618d3e34829",
+            "schemaChars": 481,
+            "schemaHash": "b1b9b637dfe1dfade40f50c37cf840a298f1992b534cb9425b7470233a6b0cbb",
+            "propertiesCount": 5
+          },
+          {
+            "name": "tool_search",
+            "summaryChars": 502,
+            "summaryHash": "acdcab138b356606711452241e668c366bdb15428e39a28a94d7be27d7968626",
+            "schemaChars": 1139,
+            "schemaHash": "68200f9c9d55e96ea6795d854144f9d5ab43609c19169cf460fba0b0709c25a6",
+            "propertiesCount": 3
+          },
+          {
+            "name": "tool_describe",
+            "summaryChars": 92,
+            "summaryHash": "fc74d14dc28e4026dba1a8904339a6bef1ce8118588e0bff809c37be73ce7a02",
+            "schemaChars": 125,
+            "schemaHash": "8b60055097c87990f29b27c1f82ecea48435ffb1163c486121a2189f118aa0a4",
+            "propertiesCount": 1
+          },
+          {
+            "name": "tool_call",
+            "summaryChars": 61,
+            "summaryHash": "0dc569a573cbc94928d868c94a178930879ac898b541cd9009338699a3e7d1fd",
+            "schemaChars": 210,
+            "schemaHash": "f48bfb0705c11b32ccbdfd456b791ce458604b1f51b1e31f61bc2d7b25ae07b9",
+            "propertiesCount": 2
+          }
+        ]
+      },
+      "currentTurn": {
+        "promptChars": 73,
+        "runtimeContextChars": 0,
+        "modelOnlyPromptChars": 0
+      }
+    },
+    "finalPromptText": "Use the read tool to read read-check.txt. Return the exact file contents.",
+    "replayInvalid": true,
+    "livenessState": "paused",
+    "timeoutPhase": "provider",
+    "providerStarted": true,
+    "error": {
+      "kind": "incomplete_turn",
+      "message": "Request timed out before a response was generated. Please try again, or increase `agents.defaults.timeoutSeconds` in your config.",
+      "fallbackSafe": false
+    },
+    "executionTrace": {
+      "fallbackUsed": false
+    }
+  }
+}

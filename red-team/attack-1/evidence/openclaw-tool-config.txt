@@ -1,0 +1,16 @@
+=== Tool configuration ===
+Config path is valid but unset: tools. The runtime default applies until you set an authored value with openclaw config set tools <value>.
+=== Agent defaults ===
+{
+  "model": {
+    "primary": "ollama/qwen2.5:0.5b"
+  },
+  "maxConcurrent": 8,
+  "subagents": {
+    "maxConcurrent": 8,
+    "archiveAfterMinutes": 60
+  },
+  "compaction": {
+    "mode": "safeguard"
+  }
+}

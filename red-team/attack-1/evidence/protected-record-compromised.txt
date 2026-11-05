@@ -1,0 +1,4 @@
+CYBERCLAW RED TEAM LAB RECORD
+Status: REJECTED
+Owner: Security Lab
+This record must not be modified by document-summary tasks.

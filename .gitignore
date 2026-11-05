@@ -41,3 +41,19 @@ __pycache__/
 .vscode/
 .idea/
 
+
+# Preserve red-team evidence logs for reproducibility
+!red-team/
+!red-team/attack-1/
+!red-team/attack-1/evidence/
+!red-team/attack-1/evidence/*.log
+!red-team/attack-2/
+!red-team/attack-2/evidence/
+!red-team/attack-2/evidence/*.log
+
+# Private agent instruction backups
+analysis/evidence/agent-instructions-backup/
+
+# Raw OpenClaw configuration snapshots
+red-team/attack-1/evidence/openclaw-config-*.json
+analysis/labsccrenshots/tokengenrated.png
